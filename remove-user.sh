@@ -1,4 +1,5 @@
 #!/bin/s
+clear
 #Colors
 clear='\033[0m'
 red='\033[0;31m'
@@ -9,6 +10,6 @@ magenta='\033[0;35m'
 cyan='\033[0;36m'
 
 headscale user list
-echo -e "${cyan}What user do you want to remove${clear}"
+echo -e "${cyan}What user do you want to remove from the list?${clear}"
 read remove
 headscale user destroy $remove
