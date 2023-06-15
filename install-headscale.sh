@@ -1,4 +1,5 @@
 #!/bin/sh
+clear
 #Updates the System
 apt update && apt upgrade -y
 
@@ -15,6 +16,7 @@ read headscaleip
 headscaleip=${headscaleip:-0.0.0.0}
 sed -i "s!server_url: http://.*:8080!server_url: http://$headscaleip:8080!" /etc/headscale/config.yaml
 sed -i "s!listen_addr: 127.0.0.1:8080!listen_addr: 0.0.0.0:8080!" /etc/headscale/config.yaml
+sed -i '68d' /etc/headscale/config.yaml
 
 #Enables and Starts the headscale server
 sudo systemctl enable headscale
